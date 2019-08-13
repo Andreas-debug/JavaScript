@@ -11,8 +11,9 @@ function imageData(image)
 
 function getPixel( context, x, y ) {
     const ata = context.getImageData(x, y, 1, 1).data;
-
-    document.write(ata + 'RGB' + '\n\n\n');
+    document.getElementById("asciiArt").innerHTML+=ata;
+    //document.write(ata + 'RGB' + '\n\n\n');
+    console.print
     return ata; 
 
 }
