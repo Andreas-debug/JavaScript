@@ -19,12 +19,12 @@ function getPixel( imagedata, x, y ) {
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-
+        
         reader.onload = function (e) {
             $('#blah')
                 .attr('src', e.target.result)
-                .width(150)
-                .height(200);
+                .width(input.files[0].width)
+                .height(input.files[0].height);
         };
 
         reader.readAsDataURL(input.files[0]);
@@ -40,7 +40,7 @@ function readURL(input) {
         {
             var color = getPixel( imagedata, x, y );
             var brightness = ((color.r + color.g + color.b)/3)*(color.a/255);
-            document.write(brightness);
+            //document.write(brightness);
         }
     }
 }
