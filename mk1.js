@@ -30,14 +30,13 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
     }
 
-    var inp = new Image();
-    inp.src = document.getElementById("blah")
-    
+    var inp = new Image(document.getElementById("blah").width, document.getElementById("blah").height);
+    inp.src = document.getElementById("blah").src;
+
     var imagedata = getImageData(inp);
-    document.write("Boi");
-    for(y = 0; y < inp.height; y++)
+    for(var y = 0; y < inp.height; y++)
     {
-        for(x = 0; x < inp.width; x++)
+        for(var x = 0; x < inp.width; x++)
         {
             var color = getPixel( imagedata, x, y );
             var brightness = ((color.r + color.g + color.b)/3)*(color.a/255);
