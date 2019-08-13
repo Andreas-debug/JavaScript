@@ -5,17 +5,17 @@ function getImageData(image)
     canvas.height = image.height;
     const context = canvas.getContext('2d');
     context.drawImage(image, 0, 0);
-    let imageData = context.getImageData(0, 0, image.width, image.height);
-    return imageData
+    return context
 
 }
 
-function getPixel( imagedata, x, y ) {
+function getPixel( context, x, y ) {
 
-    var position = ( x + imagedata.width * y ) * 4, data = imagedata.data;
-    return { r: data[ position ], g: data[ position + 1 ], b: data[ position + 2 ], a: data[ position + 3 ]}; 
+    let imageData = getPixel(context, x, y).data;
+    return imageData; 
 
 }
+
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -39,8 +39,8 @@ function readURL(input) {
         for(var x = 0; x < inp.width; x++)
         {
             var color = getPixel( imagedata, x, y );
-            var brightness = ((color.r + color.g + color.b)/3)*(color.a/255);
-            //document.write(brightness);
+            var brightness = ((color[0] + color[1] + color[2])/3)*(color[3]/255);
+            document.write(color);
         }
     }
 }
