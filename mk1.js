@@ -20,7 +20,7 @@ function getPixel(context, x, y){
 function readURL(input){
     try
     {
-        var pixelsPerDatapoint = parseInt(document.getElementById("PPDP").value);
+        var pixelsPerDatapoint = parseFloat(document.getElementById("PPDP").value);
     }
     catch
     {
@@ -48,9 +48,9 @@ function readURL(input){
         for(var y = 0; y < inp.height; y += (inp.height * pixelsPerDatapoint) / inp.height)
         {
             pixels = [];
-            for(var x = 0; x < inp.width; x += (inp.height * pixelsPerDatapoint) / inp.height)
+            for(var x = 0; x < inp.width; x += (inp.width * pixelsPerDatapoint) / inp.width)
             {
-                var color = getPixel(imagedata, x, y);
+                var color = getPixel(imagedata, Math.round(x), Math.round(y));
                 var brightness = ((color[0] + color[1] + color[2])/ 3)*(color[3]/255);
                 brightness = Math.round(brightness);
                 pixels.push(brightness);
@@ -61,18 +61,11 @@ function readURL(input){
         console.log(all.length);
         var endString = String();
         for(var a = 0; a < all.length; a++){
-            endString = String();
+            endString = "";
             for(var i = 0; i < all[a].length; i++)
             {
                 brightness = all[a][i];
-                if(characters.charAt(Math.floor(brightness/(255/(characters.length-1)))) != '\xa0')
-                {
-                    endString += String(characters.charAt(Math.floor(brightness/(255/(characters.length-1)))));
-                }
-                else
-                {
-                    endString += "\xa0"
-                }
+                endString += String(characters.charAt(Math.floor(brightness/(255/(characters.length-1)))) + "\xa0");
             }
             endString += '<br>';
             document.getElementById("asciiArt").innerHTML+=String(endString);
