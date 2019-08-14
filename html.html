@@ -11,10 +11,34 @@
   <script src="mk1.js"></script>
 </head>
 <body>
-  <input type='file' onchange="readURL(this);" />
-  <input type="text" id="PPDP" title="Pixels per Data-Point" placeholder="1" value = "1">
-  <input type="text" id="OFS" title="Output Font Size" placeholder="1" value = "10">
-  <img id="blah" src="#" alt="your image" />
-  <div id="asciiArt" style="font-family: 'Courier New', Courier, monospace;"></div>
+
+
+  <input type = 'file' id = "FILE" onchange="preview(this);"/>
+
+  <input type = "text" id = "PPDP" title = "Pixels per Data-Point" placeholder = "1" value = "1">
+
+  <input type = "text" id = "OFS" title = "Output Font Size" placeholder = "1" value = "10">
+
+
+  <select title = "Select the type of text" id = "selection">
+
+    <option value = "0">Single Character</option>
+    <option value = "1">Character and Space</option>
+    <option value = "2">Double Character</option>
+
+  </select>
+
+
+  <button title = "Generate Text" onclick = "readURL();">Generate Text</button>
+
+  
+  <img id = "blah" src="#" alt = "your image" />
+
+  
+  <div id = "asciiArt" style = "font-family: 'Courier New', Courier, monospace;">
+  
+  </div>
+
+
 </body>
 </html>

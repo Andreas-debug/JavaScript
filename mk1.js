@@ -16,19 +16,10 @@ function getPixel(context, x, y){
     //document.write(ata + 'RGB' + '\n F');
     return ata; 
 }
+var input
 
-function readURL(input){
-    try
-    {
-        var pixelsPerDatapoint = parseFloat(document.getElementById("PPDP").value);
-        var outputFontSize = parseFloat(document.getElementById("OFS").value);
-    }
-    catch
-    {
-        document.getElementById("asciiArt").innerHTML = "Not a number"
-    }
-    var characters = ("$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft" + "/|" + "()1{}[]?-_+~<>i!lI;:," + '"^`' + "\\" + ".'" + "'\xa0");
-
+function preview(inpu){
+    input = inpu
     var inp = new Image();
     var file = document.querySelector('input[type=file]').files[0];
     if (input.files && input.files[0]) {
@@ -41,9 +32,28 @@ function readURL(input){
         if (file) {
             reader.readAsDataURL(file);
         }
+    
+    return (inp)
+}
+
+function readURL(){
+    var inp = preview(document.getElementById("FILE"))
+    //var characters = ("$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft" + "/|" + "()1{}[]?-_+~<>i!lI;:," + '"^`' + "\\" + ".'" + "'\xa0");
+    var characters = ("$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft" + "/|" + "()1{}[]?-_+~c>i!lI;:," + '"^`' + "\\" + ".'" + "\xa0\xa0");
+
     inp.onload = function() {  
+        try
+        {
+            var pixelsPerDatapoint = parseFloat (document.getElementById("PPDP").value);
+            var outputFontSize = parseFloat(document.getElementById ("OFS").value);
+        }
+        catch
+        {
+            document.getElementById("asciiArt").innerHTML = "Not a  number"
+        }
         document.getElementById("asciiArt").innerHTML="";
         var all = [];
+        var selected = document.getElementById("selection").options[document.getElementById("selection").selectedIndex].value;
         var pixels = [];
         var imagedata = imageData(inp);
         for(var y = 0; y < inp.height; y += (inp.height * pixelsPerDatapoint) / inp.height)
@@ -64,11 +74,24 @@ function readURL(input){
             for(var i = 0; i < all[a].length; i++)
             {
                 brightness = all[a][i];
-                endString += String(characters.charAt(Math.floor(brightness/(255/(characters.length-1)))) + "\xa0");
+                str = String(characters.charAt(Math.floor(brightness/(255/(characters.length-1)))));
+                if (selected == 0)
+                {
+                    endString += str;
+                }
+                else if (selected == 1)
+                {
+                    endString += str + "\xa0";
+                }
+                else
+                {
+                    endString += str + str;
+                }
             }
             endString += '<br>';
-            document.getElementById("asciiArt").style.fontSize = outputFontSize;
+            document.getElementById("asciiArt").style.fontSize = String(outputFontSize) + "px";
             document.getElementById("asciiArt").innerHTML+=String(endString);
+            alert("Text Done Generating");
         }
     };
 }
