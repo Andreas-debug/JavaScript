@@ -21,6 +21,7 @@ function readURL(input){
     try
     {
         var pixelsPerDatapoint = parseFloat(document.getElementById("PPDP").value);
+        var outputFontSize = parseFloat(document.getElementById("OFS").value);
     }
     catch
     {
@@ -55,10 +56,8 @@ function readURL(input){
                 brightness = Math.round(brightness);
                 pixels.push(brightness);
             }
-            console.log(pixels.length);
             all.push(pixels);
         }
-        console.log(all.length);
         var endString = String();
         for(var a = 0; a < all.length; a++){
             endString = "";
@@ -68,6 +67,7 @@ function readURL(input){
                 endString += String(characters.charAt(Math.floor(brightness/(255/(characters.length-1)))) + "\xa0");
             }
             endString += '<br>';
+            document.getElementById("asciiArt").style.fontSize = outputFontSize;
             document.getElementById("asciiArt").innerHTML+=String(endString);
         }
     };
