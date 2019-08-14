@@ -18,6 +18,14 @@ function getPixel(context, x, y){
 }
 
 function readURL(input){
+    try
+    {
+        var pixelsPerDatapoint = parseInt(document.getElementById("PPDP").value);
+    }
+    catch
+    {
+        document.getElementById("asciiArt").innerHTML = "Not a number"
+    }
     var characters = ("$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft" + "/|" + "()1{}[]?-_+~<>i!lI;:," + '"^`' + "\\" + ".'" + "'\xa0");
 
     var inp = new Image();
@@ -37,10 +45,10 @@ function readURL(input){
         var all = [];
         var pixels = [];
         var imagedata = imageData(inp);
-        for(var y = 0; y < inp.height; y++)
+        for(var y = 0; y < inp.height; y += (inp.height * pixelsPerDatapoint) / inp.height)
         {
             pixels = [];
-            for(var x = 0; x < inp.width; x++)
+            for(var x = 0; x < inp.width; x += (inp.height * pixelsPerDatapoint) / inp.height)
             {
                 var color = getPixel(imagedata, x, y);
                 var brightness = ((color[0] + color[1] + color[2])/ 3)*(color[3]/255);
@@ -63,7 +71,7 @@ function readURL(input){
                 }
                 else
                 {
-                    endString += "\xa0\xa0"
+                    endString += "\xa0"
                 }
             }
             endString += '<br>';
