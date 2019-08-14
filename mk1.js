@@ -19,6 +19,7 @@ function getPixel(context, x, y){
 
 function readURL(input){
     var characters = ("$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft" + "/|" + "()1{}[]?-_+~<>i!lI;:," + '"^`' + "\\" + ".'" + "'\xa0");
+
     var inp = new Image();
     var file = document.querySelector('input[type=file]').files[0];
     if (input.files && input.files[0]) {
@@ -32,31 +33,41 @@ function readURL(input){
             reader.readAsDataURL(file);
         }
     inp.onload = function() {  
-        var pixels = []
+        document.getElementById("asciiArt").innerHTML="";
+        var all = [];
+        var pixels = [];
         var imagedata = imageData(inp);
         for(var y = 0; y < inp.height; y++)
         {
-            pixels.push(240)
+            pixels = [];
             for(var x = 0; x < inp.width; x++)
             {
                 var color = getPixel(imagedata, x, y);
                 var brightness = ((color[0] + color[1] + color[2])/ 3)*(color[3]/255);
-                brightness = Math.round(brightness)
-                pixels.push(brightness)
+                brightness = Math.round(brightness);
+                pixels.push(brightness);
             }
-            pixels.push('<br>')
+            console.log(pixels.length);
+            all.push(pixels);
         }
-        var endString = String()
-        for(var i = 0; i < pixels.length; i++){
-            brightness = pixels[i];
-            if (brightness != '<br>')
+        console.log(all.length);
+        var endString = String();
+        for(var a = 0; a < all.length; a++){
+            endString = String();
+            for(var i = 0; i < all[a].length; i++)
             {
-                endString += String(characters.charAt(Math.round(brightness/(255/(characters.length)))));
+                brightness = all[a][i];
+                if(characters.charAt(Math.floor(brightness/(255/(characters.length-1)))) != '\xa0')
+                {
+                    endString += String(characters.charAt(Math.floor(brightness/(255/(characters.length-1)))));
+                }
+                else
+                {
+                    endString += "\xa0\xa0"
+                }
             }
-            else{
-                endString += String('<br>');
-            }
+            endString += '<br>';
+            document.getElementById("asciiArt").innerHTML+=String(endString);
         }
-        document.getElementById("asciiArt").innerHTML=String(endString);
     };
 }
