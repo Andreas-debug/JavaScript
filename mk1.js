@@ -91,7 +91,7 @@ function readURL(){
             endString += '<br>';
             document.getElementById("asciiArt").style.fontSize = String(outputFontSize) + "px";
             document.getElementById("asciiArt").innerHTML+=String(endString);
-            alert("Text Done Generating");
         }
+        alert("Text Done Generating");
     };
 }
