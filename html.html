@@ -13,9 +13,11 @@
 <body>
 
 
-  <input type = 'file' id = "FILE" onchange="preview(this);"/>
+  <input type = 'file' id = "FILE" onchange="preview(this); onC();" accept=".png,.jpg,.jpeg,.bmp" title="Select Image to Convert"/>
 
-  <input type = "text" id = "PPDP" title = "Pixels per Data-Point" placeholder = "1" value = "1">
+  <p id = "pTag">Warning! 1 second can load about 35000 pixels, so don't go overkill!<br></p>
+
+  <input type = "text" id = "PPDP" onchange="onC();" title = "Pixels per Data-Point" placeholder = "1" value = "1">
 
   <input type = "text" id = "OFS" title = "Output Font Size" placeholder = "1" value = "10">
 
@@ -32,7 +34,7 @@
   <button title = "Generate Text" onclick = "readURL();">Generate Text</button>
 
   
-  <img id = "blah" src="#" alt = "your image" />
+  <img id = "blah" src="#" style="max-width: 200px; max-height: 200px;" alt = "your image"/>
 
   
   <div id = "asciiArt" style = "font-family: 'Courier New', Courier, monospace;">

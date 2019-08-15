@@ -10,10 +10,47 @@ function imageData(image)
 
 }
 
+pText = "Warning! 1 second can only load 35000 pixels, so don't go overkill!<br>"
+
+function onC(){
+    try
+        {
+            var pixelsPerDatapoint = parseFloat (document.getElementById("PPDP").value);
+        }
+    catch
+        {
+            document.getElementById("asciiArt").innerHTML = "Not a  number"
+        }
+    var inp = preview(document.getElementById("FILE"))
+    inp.onload = function(){
+        var seconds = Math.round(((inp.height*inp.width)/35000)/pixelsPerDatapoint);
+        var minuites = 0;
+        var hours = 0;
+        var time = ""
+        while(seconds >= 60){
+            seconds -=60;
+            minuites += 1;
+            if(minuites >= 60){
+                minuites -= 60;
+                hours += 1;
+            }
+        }
+        time = String(seconds) + " seconds"
+        if(minuites >= 1){
+            time = String(minuites) + " minuites and " + time;
+        }
+        if (hours >= 1){
+            time = String(hours) + " hours, " + time;
+        }
+        document.getElementById("pTag").innerHTML = (pText + "Image width: " + String(Math.round(inp.width / pixelsPerDatapoint)) + "<br>Image height: " + String(Math.round(inp.height / pixelsPerDatapoint)) + "<br>Total area: " + String(Math.round((inp.height * inp.width) / pixelsPerDatapoint)) + "<br>Average convertion time: " + String(time));
+    }
+}
+
 function getPixel(context, x, y){
     const ata = context.getImageData(x, y, 1, 1).data;
     //document.getElementById("asciiArt").innerHTML+=ata;
     //document.write(ata + 'RGB' + '\n F');
+    //console.log(ata);
     return ata; 
 }
 var input
@@ -32,7 +69,6 @@ function preview(inpu){
         if (file) {
             reader.readAsDataURL(file);
         }
-    
     return (inp)
 }
 
@@ -62,7 +98,8 @@ function readURL(){
             for(var x = 0; x < inp.width; x += (inp.width * pixelsPerDatapoint) / inp.width)
             {
                 var color = getPixel(imagedata, Math.round(x), Math.round(y));
-                var brightness = ((color[0] + color[1] + color[2])/ 3)*(color[3]/255);
+                var average = (color[0] + color[1] + color[2]) / 3;
+                var brightness = average + ((color[3] / 255) * (255 - average));
                 brightness = Math.round(brightness);
                 pixels.push(brightness);
             }
