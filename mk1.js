@@ -48,7 +48,7 @@ function onC(){
         if (hours >= 1){
             time = String(hours) + " hours, " + time;
         }
-        document.getElementById("pTag").innerHTML = (pText + "Image width: " + String(Math.round(inp.width / pixelsPerDatapoint)) + "<br>Image height: " + String(Math.round(inp.height / pixelsPerDatapoint)) + "<br>Total area: " + String(Math.round((inp.height * inp.width) / pixelsPerDatapoint)) + "<br>Average convertion time: " + String(time));
+        document.getElementById("pTag").innerHTML = (pText + "<br>Image width: " + String(Math.round(inp.width / pixelsPerDatapoint)) + "<br>Image height: " + String(Math.round(inp.height / pixelsPerDatapoint)) + "<br>Total area: " + String(Math.round((inp.height * inp.width) / pixelsPerDatapoint)) + "<br>Average convertion time: " + String(time));
     }
 }
 
