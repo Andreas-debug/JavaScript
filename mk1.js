@@ -1,3 +1,9 @@
+function changeFont()
+{
+    var outputFontSize = parseFloat(document.getElementById ("OFS").value);
+    document.getElementById("asciiArt").style.fontSize = String(outputFontSize) + "px";
+}
+
 function imageData(image) 
 {
     //document.write(image.src);
