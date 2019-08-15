@@ -99,7 +99,7 @@ function readURL(){
             {
                 var color = getPixel(imagedata, Math.round(x), Math.round(y));
                 var average = (color[0] + color[1] + color[2]) / 3;
-                var brightness = average + ((color[3] / 255) * (255 - average));
+                var brightness = average + (((255 - color[3]) / 255) * (255 - average));
                 brightness = Math.round(brightness);
                 pixels.push(brightness);
             }
