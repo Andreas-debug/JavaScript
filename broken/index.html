@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Convert Image to Text</title>
+    <link rel="stylesheet" href="css/perstyle.css">
+    <script src="mk1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <a href="/">Convert Image to Text</a>
+        
+        
+        </header>
+        
+        <nav class="menu">
+            
+            <a href="/">Home</a> &nbsp;&nbsp;&nbsp;
+            <a href="about">About</a> &nbsp;&nbsp;&nbsp;
+            <a href="contact">Contact</a>&nbsp;&nbsp;&nbsp;
+            
+        </nav>
+        
+        <div class="br"><br></div>
+        
+        <aside>
+            
+            <button title = "Generate Text" onclick = "readURL();">Generate Text</button>
+
+            <br>
+
+            <img id = "blah" src="https://image.flaticon.com/icons/svg/25/25231.svg" alt = "your image"/>
+            
+        </aside>
+
+        <article class="main">
+            
+            <input type = 'file' id = "FILE" onchange="preview(this); onC();" accept=".png,.jpg,.jpeg,.bmp" title="Select Image to Convert"/>
+
+            <br><br>
+
+            <p1>Pixels Per Character:</p1>
+
+            <input type = "text" id = "PPDP" onchange="onC();" title = "Pixels Per Character" placeholder = "1" value = "1">
+
+            <p1>&nbsp;&nbsp;Output Font Size:</p1>
+
+            <input type = "text" id = "OFS" onchange="changeFont();" title = "Output Font Size" placeholder = "1" value = "10">
+
+
+            <select title = "Select the type of text" id = "selection">
+
+              <option value = "0">Single Character</option>
+              <option value = "1">Character and Space</option>
+              <option value = "2">Double Character</option>
+
+            </select>
+
+            <br><br>
+
+            <div id="progressBar">
+                    <div id="barStatus"></div>
+            </div>
+
+            <p id = "pTag">Warning! 1 second can load about 35000 pixels, so don't go overkill!<br><br><br><br><br><br></p>
+
+            <br><br>            
+
+            <div id="asciiArt"></div>
+
+        </article>
+        
+        <div class="br"><br></div>
+        
+        <div class="break"></div>
+        
+        <footer>
+            
+            &copy; 2030 Minimalistic Website 
+            &nbsp; <span class="seperator">|</span> &nbsp; 
+            Designed by Andrew and Stuart
+            &nbsp; <span class="seperator">|</span> &nbsp; 
+            Hosted by Charles Smith at <a href="https://www.wpopt.net/index.php" target="_blank">WPopt AB</a>
+            
+        </footer>
+        
+        
+    </div>
+</body>
+</html>
