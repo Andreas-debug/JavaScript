@@ -1,0 +1,360 @@
+/*
+DUSTY - #96858F
+LAVENDAR - #6D7993
+OVERCAST - #9099A2
+PAPER - #D5D5D5
+
+https://www.canva.com/learn/website-color-schemes/
+
+https://www.colorhexa.com
+*/
+
+@-webkit-keyframes color-change {
+    0% { color: #FFF; }
+    50% { color: #ff4da6; }
+    100% { color: #e60073; }
+}
+
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6, 0 0 90px #ff4da6, 0 0 100px #ff4da6, 0 0 110px #ff4da6;
+  }
+}
+
+
+a{
+    
+    text-decoration: none;
+    
+}
+
+body{
+    
+    background-color: #9099A2;
+    margin: 0;
+    
+}
+
+.container {
+    
+    width: 1628px;
+    margin: 0 auto;
+    background: #96858F;
+    
+}
+
+#blah {
+
+    max-width: 200px; 
+    max-height: 200px;
+    margin: 0 auto;
+    position: left;
+    border: 4px solid rgb(100, 90, 96);
+
+}
+
+.header {
+    
+    background-image: url(non-copyrighted-frac-1.jpg);
+    padding: 22px 0 22px 40px;
+    color: #6D7993;
+    background-position: 100px -50px;
+    
+}
+
+.header a {
+    
+    color: #FFF;
+    font-size: 44px;
+    font-weight: bold;
+    font-family: "Bahnschrift", "", "";
+    animation: glow 2.5s ease-in-out infinite alternate;
+    
+}
+
+.header a:hover{
+    
+    color: #C5D6DB;
+    
+}
+
+.menu {
+    
+    background-color: #6D7993;
+    height: 18px;
+    vertical-align: middle;
+    padding: 12px 12px 12px 40px;
+    
+}
+
+.menu a {
+    
+    color: #C5D6DB;
+    font-family: "Calibri", "Arial Narrow", "Myriad Pro"
+    
+}
+
+.menu a:hover {
+    
+    color: #FFF;
+    vertical-align: top;
+    font-size: 18px;
+    
+}
+
+aside {
+    
+    float: left;
+    width: 208px;
+    padding: 10px 0px 50px 0px;
+    background-color: #96858F;
+    
+}
+
+h1 {
+    
+    text-align: center;
+    margin: 0px;
+    color: #6D7993;
+    text-shadow: 2px 2px #000;
+    font-size: 24px;
+    font-family: "Calibri", "Arial Narrow", "Myriad Pro";
+    font-weight: normal;
+    
+}
+
+.contact h1 {
+    
+    text-align: left;
+    margin: 0px;
+    color: #6D7993;
+    text-shadow: 2px 2px #000;
+    font-size: 36px;
+    font-family: "Calibri", "Arial Narrow", "Myriad Pro";
+    font-weight: normal;
+    text-decoration: underline;
+    
+}
+
+h2 {
+    
+    margin: 0px;
+    color: #000;
+    text-shadow: 2px 2px #6D7993;
+    font-size: 24px;
+    font-family: "Calibri", "Arial Narrow", "Myriad Pro";
+    font-weight: normal;
+}
+
+.main {
+    
+    margin: 0 0 0 200px;
+    padding: 0px 10px 10px 20px;
+    font-family: "Georgia", "Arial Narrow", "Calibri", "Myriad Pro";
+    font-size: 16px;
+    line-height: 20px;
+    text-emphasis: justify;
+    word-wrap: break-word;
+    
+}
+
+#asciiArt {
+
+    font-family: 'Courier New', Courier, monospace;
+    line-height: normal;
+    color: #000;
+
+}
+
+.main a:hover{
+    
+    color: #FFF;
+    vertical-align: top;
+    font-size: 18px;
+    
+}
+
+.break {
+    
+    background-color: #6D7993;
+    height: 18px;
+    vertical-align: middle;
+    padding: 12px 12px 12px 40px;
+    
+}
+
+footer {
+    
+    padding: 12px 12px 12px 12px;
+    background-image: url(non-copyrighted-frac-1.jpg);
+    background-position: -50px 45px;
+    color: #C5D6DB;
+    text-shadow: 1px 1px #000;
+    font-size: 16px;
+    font-family: "Times New Roman";
+    text-align: right;
+    
+}
+
+footer a {
+    
+    text-decoration: underline;
+    color: #C5D6DB;
+    text-shadow: 1px 1px #000;
+    
+}
+
+footer a:hover {
+    
+    color: #FFF;
+    
+}
+
+.seperator {
+    
+    color: #ff4da6;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    animation: color-change 5s infinite alternate;
+    
+}
+
+
+/* About Page Styles*/
+
+#about-page #home-image img {
+    
+    width: 1337px;
+    float: left;
+    
+}
+
+#about-page #profile-info {
+    
+    clear: both;
+    
+}
+
+#about-page .description {
+    
+    clear: both;
+    
+}
+
+#paragraph-about-us {
+    
+    font-size: 18px;
+    color: #2a3540;
+    font-weight: bold;
+    font-family: "Myriad Pro", "Arial Narrow", "Calibri";
+    
+}
+
+#contacting div {
+    
+    padding: 0 0 0 50px;
+    
+}
+
+.contact #form {
+    
+    border-radius: 5px;
+    width: 1000px;
+    background-color: #6D7993;
+    padding: 10px 10px 10px 10px;
+    margin: 0 auto;
+    
+}
+
+#contact #form input {
+    
+    border-radius: 5px;
+    height: 20px;
+    background-color: #9099A2;
+    border: 0px solid black; 
+    margin: 0 0 0 5px;
+    
+}
+
+.one input {
+    
+    width: 150px;
+    padding: 0 0 0 5px;
+    
+}
+
+.two input {
+    
+    width: 300px;
+    padding: 0 0 0 5px;
+    
+}
+
+
+.three input {
+    
+    width: 450px;
+    padding: 0 0 0 5px;
+    
+}
+
+#contact #form textarea {
+    
+    resize: none;
+    border-radius: 5px;
+    height: 80px;
+    width: 580px;
+    background-color: #96858F;
+    border: 0px solid black; 
+    margin: 0 0 0 5px;
+    box-shadow: inset -10px -10px 50px 0px #76656F;
+    color: #D5D5D5;
+    text-shadow: 1px 1px #454545;
+    font-size: 18px;
+    font-family: "Time New Roman", "Calibri", "Myriad Pro", "Arial Narrow";
+    padding: 0 0 0 5px;
+    
+}
+
+#contact #form .button input {
+    
+    background-color: #96858F;
+    border: none;
+    height: 50px;
+    width: 750px;
+    display: flex;
+    justify-content: center;
+    color: #D5D5D5;
+    text-shadow: 2px 2px #454545;
+    font-size: 18px;
+    font-family: "Time New Roman", "Calibri", "Myriad Pro", "Arial Narrow";
+    text-align: center;
+    cursor: pointer;
+    box-shadow: inset 0px 0px 50px 0 #76656F;
+    transition-duration: 1s;
+    
+}
+
+#contact #form .button input:hover {
+    
+    transition-duration: 1s;
+    font-size: 28px;
+    color: #E8E8E8;
+    font-weight: bold;
+    text-shadow: 5px 5px #454545;
+    
+}

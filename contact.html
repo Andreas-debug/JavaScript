@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CIT - Contact</title>
+    <link rel="stylesheet" href="css/perstyle.css">
+</head>
+<body id="contact">
+    <div class="container">
+        <header class="header">
+            <a href="/">Convert Image to Text</a>
+        
+        
+        </header>
+        
+        <nav class="menu">
+            
+            <a href="/">Home</a> &nbsp;&nbsp;&nbsp;
+            <a href="about">About</a> &nbsp;&nbsp;&nbsp;
+            <a href="contact">Contact</a>&nbsp;&nbsp;&nbsp;
+            
+        </nav>
+        
+        <article class="contact">
+            
+            <div style="padding: 0 0 0 105px;">
+                <h1 class="contact">Contact:</h1>
+            </div>
+            
+            <br>
+            
+            <div id="form">
+                
+                <form method="post" action="process.php">
+                    
+                    <div class="one">
+                        <label for="name">Name: &nbsp;</label>
+                        <input type="text" class="one" name="name" placeholder="John Doe" style="margin: 0 0 0 6px;" oninvalid="this.setCustomValidity('Enter your name')" oninput="this.setCustomValidity('')" required>
+                    </div>
+                    
+                    <div>
+                        <br><br>
+                    </div>
+                    
+                    <div class="two">
+                        <label for="email">Email: &nbsp;</label>
+                        <input type="text" class="two" name="email" placeholder="default@example.com" style="margin: 0 0 0 6px;" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" oninvalid="this.setCustomValidity('Enter a working email')" oninput="this.setCustomValidity('')" required>
+                    </div>
+                    
+                    <div>
+                        <br><br>
+                    </div>
+                    
+                    <div class="three">
+                        <label for="subject">Subject:</label>
+                        <input type="text" class="three" name="subject" placeholder="The subject of your mail" oninvalid="this.setCustomValidity('Write the subject')" oninput="this.setCustomValidity('')" required>
+                    </div>
+                    
+                    <div>
+                        <br><br>
+                    </div>
+                    
+                    <div class=message>
+                        <label for="message">Message:</label>
+                        <textarea name="message" id="message" cols="30" rows="10" placeholder="Type your message here, please" oninvalid="this.setCustomValidity('Enter your message')" oninput="this.setCustomValidity('')" required></textarea>
+                    </div>
+                    
+                    <div>
+                        <br><br>
+                    </div>
+                    
+                    <div class="button">
+                        
+                        <input id="submit" type="submit" name="submit" value="Send your message here">
+                        
+                    </div>
+                    
+                    <div>
+                        <br>
+                    </div>
+                    
+                </form>
+                
+            </div>
+            
+            <br><br>
+            
+        </article>
+        
+        <nav class="menu">
+            
+            <br>
+            <br>
+            <br>
+            
+        </nav>
+        
+        <footer>
+            
+            &copy; 2030 Minimalistic Website 
+            &nbsp; <span class="seperator">|</span> &nbsp; 
+            Designed by Andrew and Stuart
+            &nbsp; <span class="seperator">|</span> &nbsp; 
+            Hosted by Charles Smith at <a href="https://www.wpopt.net/index.php" target="_blank">WPopt AB</a>
+            
+        </footer>
+        
+        
+        
+    </div>
+</body>
+</html>

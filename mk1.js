@@ -108,6 +108,7 @@ function readURL(){
                 var brightness = average + (((255 - color[3]) / 255) * (255 - average));
                 brightness = Math.round(brightness);
                 pixels.push(brightness);
+                document.getElementById("barStatus").style.width = (((y + 1)*(x + 1))/(inp.width*inp.height-1))*50 + "%";
             }
             all.push(pixels);
         }
@@ -130,6 +131,7 @@ function readURL(){
                 {
                     endString += str + str;
                 }
+                document.getElementById("barStatus").style.width = (((a+1)*(i+1))/(all.length*all[a].length))*50 + 50 + "%";
             }
             endString += '<br>';
             document.getElementById("asciiArt").style.fontSize = String(outputFontSize) + "px";
