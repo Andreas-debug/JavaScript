@@ -79,6 +79,7 @@ function preview(inpu){
 }
 
 function readURL(){
+    document.getElementById("barStatus").style.width = "0%";
     var inp = preview(document.getElementById("FILE"))
     //var characters = ("$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft" + "/|" + "()1{}[]?-_+~<>i!lI;:," + '"^`' + "\\" + ".'" + "'\xa0");
     var characters = ("$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft" + "/|" + "()1{}[]?-_+~c>i!lI;:," + '"^`' + "\\" + ".'" + "\xa0\xa0");
@@ -100,6 +101,7 @@ function readURL(){
         var imagedata = imageData(inp);
         for(var y = 0; y < inp.height; y += (inp.height * pixelsPerDatapoint) / inp.height)
         {
+            document.getElementById("barStatus").style.width = ((50 * (y + 1)) / inp.height) + "%";
             pixels = [];
             for(var x = 0; x < inp.width; x += (inp.width * pixelsPerDatapoint) / inp.width)
             {
@@ -108,12 +110,13 @@ function readURL(){
                 var brightness = average + (((255 - color[3]) / 255) * (255 - average));
                 brightness = Math.round(brightness);
                 pixels.push(brightness);
-                document.getElementById("barStatus").style.width = (((y + 1)*(x + 1))/(inp.width*inp.height-1))*50 + "%";
             }
             all.push(pixels);
         }
         var endString = String();
-        for(var a = 0; a < all.length; a++){
+        for(var a = 0; a < all.length; a++)
+        {
+            document.getElementById("barStatus").style.width = ((50 * (a + 1)) / all.length) + 50 + "%";
             endString = "";
             for(var i = 0; i < all[a].length; i++)
             {
@@ -131,7 +134,7 @@ function readURL(){
                 {
                     endString += str + str;
                 }
-                document.getElementById("barStatus").style.width = (((a+1)*(i+1))/(all.length*all[a].length))*50 + 50 + "%";
+                //document.getElementById("barStatus").style.width = (((a+1)*(i+1))/(all.length*all[a].length))*50 + 50 + "%";
             }
             endString += '<br>';
             document.getElementById("asciiArt").style.fontSize = String(outputFontSize) + "px";
